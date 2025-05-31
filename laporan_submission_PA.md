@@ -1,0 +1,9 @@
+# Laporan Submission Predictive Analytics - Najwa Tiara Djunaedy Putri
+
+## Domain Proyek
+- Latar belakang: Industri telekomunikasi mengalami persaingan yang sangat ketat, dengan banyaknya penyedia layanan yang menawarkan paket serupa. Perusahaan telekomunikasi perlu mempertahankan tingkat loyalitas pelanggan agar tetap bertahan. Churn cuxtomer menjadi indikator penting yang dapat memengaruhi pendapatan perusahaan.
+  Churn customer menunjukkan jumlah pelanggan lama yang hilang, baik karena alasan apa pun, selama periode tertentu. Kemungkinan pelanggan berhenti atau lanjut berlangganan dapat dipengaruhi oleh perilaku dan karakteristik pelanggan. Data historis pelanggan memungkinkan perusahaan untuk membangun model prediktif guna mengidentifikasi pelanggan yang berisiko churn.
+- Mengapa masalah churn harus diselesaikan: Berdampak langsung pada pendapatan perusahaan (perusahaan cenderung mengeluarkan lebih banyak dana untuk mendapatkan pelanggan baru), indikator kepuasan pelanggan (churn yang tinggi mencerminkan rendahnya kepuasan pelanggan), meningkatkan nilai jangka panjang pelanggan, bertahan pada persaingan perusahaan yang ketat.
+- Bagaimana masalah churn diselesaikan: Menggunakan data historis pelanggan untuk memahami pola pelanggan yang churn, menggunakan model machine learning untuk mengklasifikasi pelanggan berdasarkan kemungkinan churn, pelanggan yang terdeteksi akan churn diberikan perhatian khusus seperti peningkatan layanan.
+- Hasil riset referensi:
+- Referensi: Saliu, A. (2025). Development of a Data-Driven Prototype for Consumer-Centric Product Development and Issue Resolution in the Telecommunications Industry (Case Study: Smartphones). International Journal of Research and Innovation in Social Science, 9(4), 1715-1718. https://dx.doi.org/10.47772/IJRISS.2025.90400128
