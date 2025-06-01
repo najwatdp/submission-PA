@@ -43,8 +43,7 @@ Berdasarkan hasil analisis, ditujukan untuk merumuskan tindakan atau kebijakan r
 ### Solution Statements
 1. Melakukan Exploratory Data Analysis dan visualisasi fitur terhadap target churn.
 2. Menggunakan teknik feature importance untuk mengetahui kontribusi masing-masing fitur terhadap prediksi.
-3. Membandingkan distribusi pelanggan churn dan tidak churn pada setiap fitur menggunakan visualisasi.
-4. Membangun 3 model klasifikasi, yang kemudian akan dibandingkan berdasarkan metrik evaluasi(Accuracy, Precision, Recall, F1-Score). Model terbaik akan digunakan untuk memprediksi pelanggan berpotensi churn.
+3. Membangun 3 model klasifikasi, yang kemudian akan dibandingkan berdasarkan metrik evaluasi(Accuracy, Precision, Recall, F1-Score). Model terbaik akan digunakan untuk memprediksi pelanggan berpotensi churn.
 
 ## Data Understanding
 Customer Churn Dataset memberikan gambaran menyeluruh tentang perilaku pelanggan dan churn dalam industri telekomunikasi. Kumpulan data ini mencakup informasi terperinci tentang demografi pelanggan, penggunaan layanan, dan berbagai indikator yang penting untuk menganalisis retensi dan churn pelanggan. Terdapat 1000 sampel data, yang terdiri dari 9 fitur dan 1 target. Dataset: https://www.kaggle.com/datasets/abdullah0a/telecom-customer-churn-insights-for-analysis/data
