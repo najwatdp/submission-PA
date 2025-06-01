@@ -60,15 +60,15 @@ Customer Churn Dataset memberikan gambaran menyeluruh tentang perilaku pelanggan
 - TotalCharges: Jumlah total yang dibebankan kepada pelanggan (dihitung dengan MonthlyCharges * Tenure).
 - Churn: Variabel target yang menunjukkan apakah pelanggan telah berhenti berlangganan (Yes atau No).
 ### Tahapan Data Understanding
-- Exploratory Data Understanding:
-  1. info(): Mengetahui tipe data setiap fitur
-  2. describe(): Mengetahui statistik deskriptif pada dataset, seperti jumlah data, rata-rata, standar deviasi, nilai minimum, maksimun, dan kuartil(25%, 50%, 75%)
-  3. duplicated(): Mengidentifikasi apakah terdapat baris duplikat
-  4. Boxplot: Visualisasi fitur numerikal untuk mengidentifikasi apakah terdapat outlier
-  5. Bar chart: Visualisasi distribusi fitur kategorikal
-  6. Histogram: Visulisasi distribusi fitur numerikal
-  7. Pairplot: Visualisasi hubungan antar fitur numerikal
-  8. Heatmap: Visualisasi hubungan antar fitur numerikal
+Melakukan Exploratory Data Understanding:
+1. info(): Mengetahui tipe data setiap fitur
+2. describe(): Mengetahui statistik deskriptif pada dataset, seperti jumlah data, rata-rata, standar deviasi, nilai minimum, maksimun, dan kuartil(25%, 50%, 75%)
+3. duplicated(): Mengidentifikasi apakah terdapat baris duplikat
+4. Boxplot: Visualisasi fitur numerikal untuk mengidentifikasi apakah terdapat outlier
+5. Bar chart: Visualisasi distribusi fitur kategorikal
+6. Histogram: Visulisasi distribusi fitur numerikal
+7. Pairplot: Visualisasi hubungan antar fitur numerikal
+8. Heatmap: Visualisasi hubungan antar fitur numerikal
 
 ## Data Preparation
 ### Encoding Fitur Kategori
