@@ -116,4 +116,25 @@ Metrik evaluasi yang digunakan adalah Accuracy, Precision, Recall, F1-Score.
 - Precision: Mengukur seberapa banyak prediksi churn yang benar-benar churn, atau dengan kata lain, seberapa baik model menghindari kesalahan positif (false positive).
 - Recall: Menilai kemampuan model dalam menangkap seluruh pelanggan yang benar-benar churn, dan penting untuk meminimalkan kesalahan negatif (false negative).
 - F1-Score: Merupakan rata-rata harmonik dari precision dan recall, dan digunakan untuk menilai keseimbangan antara keduanya.
+### Penjelasan Formula dan Cara Kerja
+Untuk mengevaluasi kinerja model klasifikasi churn, digunakan empat metrik evaluasi utama, yaitu Accuracy, Precision, Recall, dan F1-Score. Metrik-metrik ini dihitung berdasarkan nilai dari confusion matrix, yang terdiri atas:
+- TP (True Positive): Pelanggan yang benar-benar churn dan berhasil diprediksi churn.
+- TN (True Negative): Pelanggan yang tidak churn dan berhasil diprediksi tidak churn.
+- FP (False Positive): Pelanggan yang tidak churn tetapi diprediksi churn.
+- FN (False Negative): Pelanggan yang churn tetapi diprediksi tidak churn.
+1. Accuracy = (TP + TN) / (TP + TN + FP + FN)
+
+Metrik ini menggambarkan seberapa sering model membuat prediksi yang tepat. Namun, pada kasus data yang tidak seimbang (seperti churn), accuracy saja tidak cukup untuk menilai performa secara menyeluruh.
+2. Precision = TP / (TP + FP)
+
+Precision yang tinggi menunjukkan bahwa sebagian besar prediksi churn memang benar-benar churn. Metrik ini penting untuk meminimalkan kesalahan positif (false positive), terutama jika intervensi perusahaan memiliki biaya besar.
+3. Recall = TP / (TP + FN)
+
+Recall tinggi sangat penting dalam kasus churn, karena model harus mampu mendeteksi sebanyak mungkin pelanggan yang berpotensi berhenti berlangganan. Kesalahan negatif (false negative) harus diminimalkan agar tidak kehilangan pelanggan yang seharusnya bisa dipertahankan.
+4. F1-Score = 2 * ((Precision * Recall) / (Precision + Recall))
+
+F1-Score digunakan ketika kita ingin mempertimbangkan trade-off antara precision dan recall. Nilai F1 yang tinggi menunjukkan bahwa model memiliki kinerja yang baik secara keseluruhan dalam mendeteksi churn secara akurat dan seimbang.
 ### Hasil Proyek Berdasarkan Metrik Evaluasi
+- Random Forest menunjukkan performa tertinggi dan paling seimbang. Dengan recall sebesar 100%, model ini berhasil mendeteksi seluruh pelanggan yang benar-benar churn. Precision yang juga tinggi (99.38%) menunjukkan model tidak banyak salah menandai pelanggan non-churn sebagai churn. Hal ini menjadikan Random Forest sangat andal dalam deteksi churn secara akurat dan efisien.
+- Logistic Regression memberikan hasil yang stabil dan realistis. Nilai precision (94.55%) dan recall (97.5%) yang tinggi menunjukkan bahwa model ini cukup akurat dan tidak overfitting. Model ini cocok digunakan ketika interpretabilitas menjadi prioritas, karena koefisiennya dapat menjelaskan pengaruh masing-masing fitur.
+- Decision Tree menghasilkan skor sempurna di semua metrik, baik pada data latih maupun uji(100%). Namun, hal ini justru mengindikasikan overfitting, karena model terlalu menyesuaikan diri dengan data latih dan tidak memiliki generalisasi yang cukup untuk data baru. Oleh karena itu, model ini sebaiknya tidak digunakan tanpa pengaturan parameter tambahan seperti max_depth.
