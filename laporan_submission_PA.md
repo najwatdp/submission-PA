@@ -74,8 +74,40 @@ Melakukan Exploratory Data Understanding:
 ### Encoding Fitur Kategori
 Proses: Fitur kategorikal diubah ke bentuk numerik menggunakan LabelEncoder. Setiap kategori unik dalam suatu kolom diubah menjadi angka (Misalnya: Female = 0, Male = 1).
 
-Alasan: 
+Alasan: Model machine learning seperti Logistic Regression, Random Forest, dan Decision Tree tidak dapat memproses data dalam bentuk teks. Encoding diperlukan agar fitur kategorikal dapat diinterpretasikan secara numerik oleh algoritma.
 ### Standarisasi
-StandardScaler
+Proses: Fitur numerik distandarisasi menggunakan StandardScaler agar memiliki mean=0 dan standar deviasi=1
+
+Alasan: Model machine learning seperti Logistic Rgression sangat sensitif terhadap skala fitur. Fitur dengan nilai besar (seperti TotalCharges) bisa mendominasi model jika tidak distandarisasi. Standarisasi membuat semua fitur berada pada skala yang sama, sehingga model bisa belajar dengan lebih adil dari semua fitur.
 ### Pembagian dataset
+Proses: Dataset dibagi menjadi 2 bagian, yaitu X = semua fitur kecuali 'Churn' dan y = kolom target 'Churn'. Untuk melatih model, dataset dibagi menggunakan train_test_split dengan pembagian 80% untuk train set dan 20% untuk test set.
+
+Alasan: Pembagian dataset penting untuk melatih model pada train set dan mengukur performa model pada data yang belum pernah dilihat (test set). Hal itu dilakukan agar terhindar dari overfitting dan memastikan model bisa generalisasi ke data baru.
 Pemisahan fitur menjadi X dan target (Churn) menjadi Y. Split dataset dengan train_test_split. test_size=0.2
+
+## Modeling
+Model yang dibangun untuk meprediksi pelanggan yang berpotensi akan churn ada 3, yaitu Random Forest, Logistic Regression, dan Decision Tree.
+### Random Forest
+- Tahapan: Latih model dengan RandomForestClassifier(), evaluasi performa menggunakan metrik klasifikasi.
+- Parameter: n_estimators=100, criterion='gini', max_depth=None, min_samples_split=2, min_samples_leaf=1, bootstrap=True, random_state=None
+- Kelebihan: Lebih akurat dan stabil dibanding single tree, mengurangi overfitting dengan rata-rata dari banyak pohon, Menangani data yang kompleks, non-linear, dan dengan banyak fitur, Memberikan feature importance otomatis.
+- Kekurangan: Lebih lambat dibanding Decision Tree dan Logistic Regression (karena ensemble), kurang interpretatif dibanding model sederhana, bisa terlalu besar dan lambat saat prediksi jika dataset besar.
+### Logistic Regression
+- Tahapan: Latih model dengan LogisticRegression(), evaluasi performa menggunakan metrik klasifikasi.
+- Parameter: penalty='12', solver='lbfgs', C=1.0, max_iter=100, random_state=None
+- Kelebihan: Sederhana dan cepat dilatih, hasil model mudah diinterpretasikan (koefisien menunjukkan arah dan kekuatan pengaruh fitur), cocok untuk baseline model, tidak mudah overfitting jika data tidak kompleks.
+- Kekurangan: Kurang cocok untuk data yang sangat kompleks dan non-linear, sensitif terhadap fitur yang memiliki skala berbeda, tidak menangani interaksi antar fitur secara otomatis.
+### Decision Tree
+- Tahapan: Latih model dengan DecisionTreeClassifier(), evaluasi performa menggunakan metrik klasifikasi.
+- Parameter: criterion='gini', max_depth=None, min_samples_split=2, min_samples_leaf=1, random_state=None
+- Kelebihan: Mudah dipahami dan divisualisasikan, tidak memerlukan normalisasi atau standarisasi fitur, menangani data kategorikal dan numerik dengan baik, menangani fitur non-linear dan interaksi antar fitur.
+- Kekurangan: Cenderung overfitting jika tidak dilakukan pruning, Sensitif terhadap perubahan kecil pada data, Performa bisa buruk dibanding model ensemble.
+
+### Model Terbaik: Random Forest
+- Dalam konteks deteksi churn pelanggan, Random Forest menjadi model terbaik berdasarkan hasil evaluasi kinerja pada test set. Hal ini didukung oleh performa metrik yang sangat tinggi, khususnya dalam hal accuracy, precision, dan recall.
+- Hasil evaluasi pada test set: Accuracy 99.45%, Precision 99.38%, Recall 100%, F1-Score 99.69%.
+- Tahan overfitting dengan accuracy 100% pada train set dan 99.45% pada test set. Rndom forest tetap generalizable dan tidak mudah overfit terhadap train set.
+- Model ini memberikan informasi penting tentang fitur mana yang paling berpengaruh terhadap keputusan prediksi. Ini sangat berguna bagi perusahaan untuk memahami faktor utama penyebab churn dan menyusun strategi retensi pelanggan.
+
+## Evaluation
+Metrik evaluasi yang digunakan adalah Accuracy, Precision, Recall, F1-Score.
