@@ -111,3 +111,9 @@ Model yang dibangun untuk meprediksi pelanggan yang berpotensi akan churn ada 3,
 
 ## Evaluation
 Metrik evaluasi yang digunakan adalah Accuracy, Precision, Recall, F1-Score.
+### Penjelasan Metrik Evaluasi
+- Accuracy: Menunjukkan seberapa besar proporsi prediksi yang benar dibandingkan seluruh data.
+- Precision: Mengukur seberapa banyak prediksi churn yang benar-benar churn, atau dengan kata lain, seberapa baik model menghindari kesalahan positif (false positive).
+- Recall: Menilai kemampuan model dalam menangkap seluruh pelanggan yang benar-benar churn, dan penting untuk meminimalkan kesalahan negatif (false negative).
+- F1-Score: Merupakan rata-rata harmonik dari precision dan recall, dan digunakan untuk menilai keseimbangan antara keduanya.
+### Hasil Proyek Berdasarkan Metrik Evaluasi
