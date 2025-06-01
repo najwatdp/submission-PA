@@ -41,7 +41,7 @@ Tujuan ini fokus pada pembangunan dan evaluasi model prediktif menggunakan algor
 4. Menentukan strategi yang dapat diterapkan perusahaan telekomunikasi untuk mengurangi angka churn pelanggan.
 Berdasarkan hasil analisis, ditujukan untuk merumuskan tindakan atau kebijakan retensi yang tepat guna mempertahankan pelanggan dan menurunkan churn.
 ### Solution Statements
-1. Melakukan Exploratory Data Analysis dan visualisasi fitur terhadap target churn.
+1. Membandingkan deskriptif statistik pelanggan yang churn dengan yang tidak churn.
 2. Menggunakan teknik feature importance untuk mengetahui kontribusi masing-masing fitur terhadap prediksi.
 3. Membangun 3 model klasifikasi, yang kemudian akan dibandingkan berdasarkan metrik evaluasi(Accuracy, Precision, Recall, F1-Score). Model terbaik akan digunakan untuk memprediksi pelanggan berpotensi churn.
 
