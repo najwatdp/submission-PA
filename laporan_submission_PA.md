@@ -125,12 +125,15 @@ Untuk mengevaluasi kinerja model klasifikasi churn, digunakan empat metrik evalu
 1. Accuracy = (TP + TN) / (TP + TN + FP + FN)
 
 Metrik ini menggambarkan seberapa sering model membuat prediksi yang tepat. Namun, pada kasus data yang tidak seimbang (seperti churn), accuracy saja tidak cukup untuk menilai performa secara menyeluruh.
+
 2. Precision = TP / (TP + FP)
 
 Precision yang tinggi menunjukkan bahwa sebagian besar prediksi churn memang benar-benar churn. Metrik ini penting untuk meminimalkan kesalahan positif (false positive), terutama jika intervensi perusahaan memiliki biaya besar.
+
 3. Recall = TP / (TP + FN)
 
 Recall tinggi sangat penting dalam kasus churn, karena model harus mampu mendeteksi sebanyak mungkin pelanggan yang berpotensi berhenti berlangganan. Kesalahan negatif (false negative) harus diminimalkan agar tidak kehilangan pelanggan yang seharusnya bisa dipertahankan.
+
 4. F1-Score = 2 * ((Precision * Recall) / (Precision + Recall))
 
 F1-Score digunakan ketika kita ingin mempertimbangkan trade-off antara precision dan recall. Nilai F1 yang tinggi menunjukkan bahwa model memiliki kinerja yang baik secara keseluruhan dalam mendeteksi churn secara akurat dan seimbang.
