@@ -75,7 +75,11 @@ Berikut informasi kondisi dataset:
 3. Tidak terdapat duplikat data
 4. Terdapat outlier pada fitur Age, Tenure, dan TotalCharges.
 ![image alt](https://github.com/najwatdp/submission-PA/blob/97014a3c60f76ae41332bd1e124c40b3b2685700/boxplot_age.png)
-
+![image alt](https://github.com/najwatdp/submission-PA/blob/3e40e1ecc75670838d2ebabbdf39ded79b0915ed/boxplot_monthlycharges.png)
+![image alt](https://github.com/najwatdp/submission-PA/blob/3e40e1ecc75670838d2ebabbdf39ded79b0915ed/boxplot_tenure.png)
+![image alt](https://github.com/najwatdp/submission-PA/blob/3e40e1ecc75670838d2ebabbdf39ded79b0915ed/boxplot_totalcharges.png)
+![image alt](https://github.com/najwatdp/submission-PA/blob/3e40e1ecc75670838d2ebabbdf39ded79b0915ed/distribusi_kategorikal.png)
+![image alt](https://github.com/najwatdp/submission-PA/blob/3e40e1ecc75670838d2ebabbdf39ded79b0915ed/distribusi_numerikal.png)
 ## Data Preparation
 ### Drop Fitur CustomerID
 Proses: Menggunakan fungsi drop()
