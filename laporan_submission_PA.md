@@ -78,8 +78,46 @@ Berikut informasi kondisi dataset:
 ![image alt](https://github.com/najwatdp/submission-PA/blob/3e40e1ecc75670838d2ebabbdf39ded79b0915ed/boxplot_monthlycharges.png)
 ![image alt](https://github.com/najwatdp/submission-PA/blob/3e40e1ecc75670838d2ebabbdf39ded79b0915ed/boxplot_tenure.png)
 ![image alt](https://github.com/najwatdp/submission-PA/blob/3e40e1ecc75670838d2ebabbdf39ded79b0915ed/boxplot_totalcharges.png)
+5. Distribusi fitur kategorikal
 ![image alt](https://github.com/najwatdp/submission-PA/blob/3e40e1ecc75670838d2ebabbdf39ded79b0915ed/distribusi_kategorikal.png)
+Kelompok pelanggan yang mendominasi memiliki gender female, contract type month-to-month, internet service berupa fiber optic, memiliki tech support, dan pelanggan yang churn memiliki angka yang sangat tinggi dibandingkan pelanggan yang tidak churn.
+6. Distribusi fitur numerikal
 ![image alt](https://github.com/najwatdp/submission-PA/blob/3e40e1ecc75670838d2ebabbdf39ded79b0915ed/distribusi_numerikal.png)
+Distribusi usia pelanggan cenderung normal (mendekati bentuk bell curve) dengan puncak di rentang usia 40 hingga 50 tahun. Artinya, mayoritas pelanggan berada di usia produktif. Distribusi MonthlyCharges atau biaya bulanan bersifat relatif seragam, tanpa puncak yang dominan. Ini menunjukkan bahwa variasi harga layanan cukup merata di antara pelanggan. Distribusi Tenure (lama berlangganan) menunjukkan pola distribusi miring ke kanan (right-skewed), dengan sebagian besar pelanggan memiliki masa langganan yang relatif singkat (0–10 bulan). Hal ini bisa menunjukkan tingkat churn yang tinggi atau banyaknya pelanggan baru. Distribusi TotalCharges juga menunjukkan pola miring ke kanan, dengan banyak pelanggan memiliki total biaya rendah. Hal ini konsisten dengan distribusi Tenure, karena pelanggan baru cenderung belum mengakumulasi biaya tinggi.
+7. Hubungan antar fitur numerik
+![image alt](https://github.com/najwatdp/submission-PA/blob/df3e86fe0a46abc138366e09dc3b7453f2ab80e8/pairplot_numerikal.png)
+Age tidak menunjukkan korelasi yang signifikan terhadap MonthlyCharges, Tenure, maupun TotalCharges, terlihat dari sebaran titik yang acak dan tidak membentuk pola linier. Menandakan bahwa usia pelanggan tidak menjadi faktor utama yang memengaruhi durasi berlangganan atau total biaya. Korelasi terhadap TotalCharges cukup lemah, karena TotalCharges lebih dipengaruhi oleh durasi (Tenure) dibanding nilai bulanan. Menunjukkan korelasi yang sangat kuat terhadap TotalCharges, dengan pola sebaran yang membentuk garis diagonal menaik. Hal ini wajar karena semakin lama pelanggan berlangganan, semakin tinggi akumulasi total biaya. Memiliki hubungan yang sangat erat dengan Tenure dan sedikit korelasi positif terhadap MonthlyCharges.
+8. Heatmap fitur numerik
+![image alt](https://github.com/najwatdp/submission-PA/blob/df3e86fe0a46abc138366e09dc3b7453f2ab80e8/heatmap_numerikal.png)
+Korelasi antara Tenure dan TotalCharges sangat tinggi (0.87). Semakin lama pelanggan berlangganan (Tenure), semakin besar akumulasi biaya yang dibayarkan (TotalCharges). Korelasi antara MonthlyCharges dan TotalCharges rendah hingga sedang (0.29). Biaya bulanan berkontribusi terhadap total biaya, namun tidak sebesar pengaruh dari durasi berlangganan. Korelasi antara MonthlyCharges dan Tenure negatif sangat lemah (-0.10). Hampir tidak ada hubungan antara lamanya pelanggan berlangganan dengan biaya bulanan. Age tidak memiliki kontribusi korelasi linier yang berarti terhadap fitur numerikal lainnya, namun tetap dapat diuji dalam hubungan terhadap target variabel.
+9. Deskriptif statistik pelanggan churn
+
+| Fitur | Mode | Mean | Min | Max |
+| --- | --- | --- | --- | --- |
+| Age | - | 44.88 | 20 | 70 |
+| Gender | Female | - | - | - |
+| Tenure | - | 13.60 | 0 | 57.00 |
+| MonthlyCharges | - | 75.13 | 30.00 | 119.96 |
+| ConractType | Month-to-Month | - | - | - |
+| InternetService | Fiber Optic | - | - | - |
+| TotalCharges | - | 1003.76 | 0 | 4226.04 |
+| TechSupport | No | - | - | - |
+| Churn | Yes | - | - | - |
+
+10. Deskriptif statistik pelanggan churn
+
+| Fitur | Mode | Mean | Min | Max |
+| --- | --- | --- | --- | --- |
+| Age | - | 43.44 | 20 | 65 |
+| Gender | Female | - | - | - |
+| Tenure | - | 25.38 | 12 | 57.00 |
+| MonthlyCharges | - | 63.29 | 32.25 | 98.99 |
+| ConractType | One-Year | - | - | - |
+| InternetService | Fiber Optic | - | - | - |
+| TotalCharges | - | 1594.28 | 402.00 | 3729.92 |
+| TechSupport | Yes | - | - | - |
+| Churn | No | - | - | - |
+
 ## Data Preparation
 ### Drop Fitur CustomerID
 Proses: Menggunakan fungsi drop()
@@ -162,10 +200,38 @@ Recall tinggi sangat penting dalam kasus churn, karena model harus mampu mendete
 
 F1-Score digunakan ketika kita ingin mempertimbangkan trade-off antara precision dan recall. Nilai F1 yang tinggi menunjukkan bahwa model memiliki kinerja yang baik secara keseluruhan dalam mendeteksi churn secara akurat dan seimbang.
 ### Hasil Proyek Berdasarkan Metrik Evaluasi
+Metrik evaluasi berdasarkan train set
+
+| Model | Accuracy | Precision | Recall | Score |
+| --- | --- | --- | --- | --- |
+| Random Forest | 100% | 100% | 100% | 100% |
+| Logistic Regression | 93.42% | 94.39% | 98.46% | 96.38% |
+| Decision Tree | 100% | 100% | 100% | 100% |
+
+Metrik evaluasi berdasarkan test set
+
+| Model | Accuracy | Precision | Recall | Score |
+| --- | --- | --- | --- | --- |
+| Random Forest | 99.45% | 99.38% | 100% | 99.69% |
+| Logistic Regression | 92.90% | 94.56% | 97.50% | 96.00% |
+| Decision Tree | 100% | 100% | 100% | 100% |
+
 - Random Forest menunjukkan performa tertinggi dan paling seimbang. Dengan recall sebesar 100%, model ini berhasil mendeteksi seluruh pelanggan yang benar-benar churn. Precision yang juga tinggi (99.38%) menunjukkan model tidak banyak salah menandai pelanggan non-churn sebagai churn. Hal ini menjadikan Random Forest sangat andal dalam deteksi churn secara akurat dan efisien.
 - Logistic Regression memberikan hasil yang stabil dan realistis. Nilai precision (94.55%) dan recall (97.5%) yang tinggi menunjukkan bahwa model ini cukup akurat dan tidak overfitting. Model ini cocok digunakan ketika interpretabilitas menjadi prioritas, karena koefisiennya dapat menjelaskan pengaruh masing-masing fitur.
 - Decision Tree menghasilkan skor sempurna di semua metrik, baik pada data latih maupun uji(100%). Namun, hal ini justru mengindikasikan overfitting, karena model terlalu menyesuaikan diri dengan data latih dan tidak memiliki generalisasi yang cukup untuk data baru. Oleh karena itu, model ini sebaiknya tidak digunakan tanpa pengaturan parameter tambahan seperti max_depth.
 - Berdasarkan Feature Importance, 3 fitur yang paling memengaruhi pelanggan akan churn adalah ContractType, TechSupport, dan Tenure.
+
+| Feature | Importance |
+| --- | --- |
+| ContractType | 0.243964 |
+| TechSupport | 0.231260 |
+| Tenure | 0.199138 |
+| MonthlyCharges | 0.128909 |
+| TotalCharges | 0.121978 |
+| Age | 0.047333 |
+| InternetService | 0.016131 |
+| Gender | 0.011287 |
+
 - Modus pada ContractType pada pelanggan yang churn adalah Month-to-Month. Untuk mengurangi pelanggan yang churn, perusahaan dapat menawarkan diskon atau bonus layanan bagi pelanggan yang mau beralih ke kontrak 1 tahun atau 2 tahun.
 - Pelanggan yang churn cenderung tidak memiliki dukungan teknis. Perusahaan harus memberikan fitur dukungan teknis gratis atau trial selama 1–2 bulan untuk pelanggan baru atau yang terdeteksi berisiko churn, meningkatkan kemudahan akses ke dukungan melalui live chat, WhatsApp, atau aplikasi mobile.
 - Tenure (masa berlangganan) pada pelanggan yang churn memiliki rata-rata yang lebih rendah (13.6 bulan) daripada pelanggan yang tidak churn (25.38 bulan). Perusahaan dapat melakukan program onboarding atau edukasi untuk pelanggan baru, seperti tips penggunaan, aplikasi pendukung, cara klaim bantuan. Perusahaan mengirimkan email /WhatsApp personal setelah 1 minggu, 1 bulan, dan 3 bulan bergabung untuk memastikan kepuasan.
