@@ -60,16 +60,36 @@ Customer Churn Dataset memberikan gambaran menyeluruh tentang perilaku pelanggan
 - Churn: Variabel target yang menunjukkan apakah pelanggan telah berhenti berlangganan (Yes atau No).
 ### Tahapan Data Understanding
 Melakukan Exploratory Data Understanding:
-1. info(): Mengetahui tipe data setiap fitur
+1. info(): Mengetahui tipe data dan cek nilai null setiap fitur.
 2. describe(): Mengetahui statistik deskriptif pada dataset, seperti jumlah data, rata-rata, standar deviasi, nilai minimum, maksimun, dan kuartil(25%, 50%, 75%)
-3. duplicated(): Mengidentifikasi apakah terdapat baris duplikat
+3. duplicated(): Mengidentifikasi apakah terdapat baris duplikat.
 4. Boxplot: Visualisasi fitur numerikal untuk mengidentifikasi apakah terdapat outlier
 5. Bar chart: Visualisasi distribusi fitur kategorikal
 6. Histogram: Visulisasi distribusi fitur numerikal
 7. Pairplot: Visualisasi hubungan antar fitur numerikal
 8. Heatmap: Visualisasi hubungan antar fitur numerikal
 
+Berikut informasi kondisi dataset:
+1. Terdapat 5 fitur numerikal dan 5 fitur kategorikal
+2. Terdapat 297 nilai null di fitur InternetService. Nilai null tersebut diisi dengan nilai modus dengan metode fillna()
+3. Tidak terdapat duplikat data
+4. Terdapat outlier pada fitur Age, Tenure, dan TotalCharges.
+
 ## Data Preparation
+### Drop Fitur CustomerID
+Proses: Menggunakan fungsi drop()
+
+Alasan: Fitur CustomerID tidak memberikan informasi yang bermanfaat untuk model yang akan dibangun sehingga fitur ini lebih baik dihapus.
+### Hapus Outlier
+Proses: Fitur numerikal yang dianalisis meliputi: Age, MonthlyCharges, Tenure, dan TotalCharges. Deteksi outlier dilakukan menggunakan metode Interquartile Range (IQR), yaitu dengan menghitung kuartil pertama (Q1) dan kuartil ketiga (Q3), kemudian menentukan batas bawah dan batas atas sebagai berikut:
+
+Batas bawah = Q1 - 1.5 × IQR
+
+Batas atas = Q3 + 1.5 × IQR
+
+Nilai-nilai yang berada di luar batas tersebut dianggap sebagai outlier. Setiap baris dalam dataset diperiksa untuk keempat fitur numerikal tersebut, dan baris yang memiliki minimal satu nilai outlier di salah satu fitur akan dihapus.
+
+Alasan: Untuk memastikan kualitas data yang digunakan dalam proses pemodelan, dilakukan deteksi dan penghapusan outlier pada fitur numerikal. Outlier merupakan nilai ekstrem yang secara signifikan berbeda dari mayoritas data dan berpotensi menyebabkan distorsi dalam proses pelatihan model, sehingga memengaruhi akurasi dan kemampuan generalisasi model.
 ### Encoding Fitur Kategori
 Proses: Fitur kategorikal diubah ke bentuk numerik menggunakan LabelEncoder. Setiap kategori unik dalam suatu kolom diubah menjadi angka (Misalnya: Female = 0, Male = 1).
 
