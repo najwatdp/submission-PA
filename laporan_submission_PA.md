@@ -74,6 +74,7 @@ Berikut informasi kondisi dataset:
 2. Terdapat 297 nilai null di fitur InternetService. Nilai null tersebut diisi dengan nilai modus dengan metode fillna()
 3. Tidak terdapat duplikat data
 4. Terdapat outlier pada fitur Age, Tenure, dan TotalCharges.
+![image alt](https://github.com/najwatdp/submission-PA/blob/97014a3c60f76ae41332bd1e124c40b3b2685700/boxplot_age.png)
 
 ## Data Preparation
 ### Drop Fitur CustomerID
